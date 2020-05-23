@@ -1,5 +1,7 @@
 # Sandbox Serverless DI Pattern
 
+![Node.js CI](https://github.com/kamataryo/sandbox-serverless-di-pattern/workflows/Node.js%20CI/badge.svg)
+
 A sandbox to test Lambda function with Dependencies Injection Pattern.
 
 ## Description
