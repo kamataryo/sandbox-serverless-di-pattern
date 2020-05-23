@@ -1,0 +1,37 @@
+service: sandbox-sls-di
+
+frameworkVersion: ">=1.29.2 <2.0.0"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 128
+  region: ap-northeast-1
+  stage: v1
+
+package:
+  exclude:
+    - .serverless/**
+    - .circleci/**
+    - .git/**
+    - bin/**
+    - test/**
+    - docs/**
+    - src/*.test.js
+    - .*
+    - package-lock.json
+    - yarn.lock
+    - README.md
+
+functions:
+  hello:
+    handler: src/hello.handler
+    events:
+      - http:
+          path: hello
+          method: get
+          integration: lambda-proxy
+          cors: true
